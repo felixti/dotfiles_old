@@ -1,0 +1,101 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+set surround
+set commentary
+
+" Do incremental searching.
+set clipboard+=unnamed
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+set showmode 
+set number
+set relativenumber
+
+
+let mapleader = " "
+" Don't use Ex mode, use Q for formatting. map Q gq
+map Q gq
+
+inoremap jk <Esc>
+inoremap jj <Esc>
+noremap U <C-r>
+
+map <leader>w <Action>(SaveAll)
+map <leader>lr <Action>(RenameElement)
+map <leader>lf <Action>(FindUsages)
+map <leader>lsn <Action>(SelectNextOccurrence)
+map <leader>lsp <Action>(SelectPreviousOccurrence)
+map <leader>lsa <Action>(SelectAllOccurences)
+map <leader>lq <Action>(QuickDefinition)
+map <leader>la <Action>(ShowIntentionActions)
+map <leader>lc <Action>(ChangeSignature)
+map <leader>lC <Action>(CopyReference)
+map <leader>lI <Action>(ImplementMethods)
+map <leader>lO <Action>(OverrideMethods)
+map <leader>lR <Action>(Refactor)
+
+map <leader>ai <Action>(copilot.chat.show)
+
+map <leader>wv <Action>(SplitVertically)
+map <leader>wh <Action>(SplitHorizontally)
+map <leader>ww <Action>(Unsplit)
+map <leader>wa <Action>(UnsplitAll)
+map <leader>wj <Action>(NextSplitter)
+map <leader>wk <Action>(PreviousSplitter)
+
+map <leader>fa <Action>(GotoAction)
+map <leader>fc <Action>(GotoClass)
+map <leader>ff <Action>(GotoFile)
+map <leader>fF <Action>(SearchEverywhere)
+map <leader>fl <Action>(GotoLine)
+map <leader>fm <Action>(GotoMember)
+map <leader>fr <Action>(GotoResource)
+map <leader>fs <Action>(GotoSymbol)
+map <leader>ft <Action>(GotoType)
+map <leader>fw <Action>(GotoWord)
+
+nmap gd <Action>(GotoDeclaration)
+nmap gy <Action>(GotoTypeDeclaration)
+nmap gI <Action>(GotoImplementation)
+
+map <leader><leader> <Action>(ReformatCode)
+map <leader>oi <Action>(OptimizeImports)
+map <leader>ra <Action>(RearrangeCode)
+
+map <leader>c <Action>(CloseContent)
+map <leader>th <Action>(ActivateTerminalToolWindow)
+map <C-a> <Action>(SelectAll)
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+"
+map <leader>ds <Action>(Debug)
+map <leader>dS <Action>(Run)
+map <leader>db <Action>(ToggleLineBreakpoint)
+map <leader>dq <Action>(Stop)
+map <leader>dp <Action>(Pause)
